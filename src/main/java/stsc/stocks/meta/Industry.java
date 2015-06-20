@@ -1,4 +1,4 @@
-package stsc.stocks;
+package stsc.stocks.meta;
 
 /**
  * List of Industries.

@@ -1,4 +1,4 @@
-package stsc.stocks;
+package stsc.stocks.meta;
 
 /**
  * For example ASIA, EUROPE, AMERICA, AUSTRALIA...
@@ -8,6 +8,7 @@ public enum Region {
 	ASIA("Tadadada-ta-datatam."), //
 	EUROPE("Germany is there."), //
 	LATIN_AMERICA("Tequila!"), //
+	AMERICA("New Continent"), //
 	AUSTRALIA("Kangaroo home."), //
 	;
 

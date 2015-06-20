@@ -1,4 +1,4 @@
-package stsc.stocks;
+package stsc.stocks.meta;
 
 /**
  * Market index group. (For example 'Global', 'National').<br/>
