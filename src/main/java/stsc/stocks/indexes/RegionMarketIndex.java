@@ -42,12 +42,11 @@ public enum RegionMarketIndex {
 	_094SSMI(EUROPE, "Swiss Market"), //
 
 	/*
-	 * FPXAA.PR PX Index 975.50 // 
+	 * FPXAA.PR PX Index 975.50 //
 	 * 
-	 * MICEXINDEXCF.ME MICEX Index 1,663.03 // 
+	 * MICEXINDEXCF.ME MICEX Index 1,663.03 //
 	 * 
-	 * GD.AT
-	 * Athex Composite Share Price Index 687.33
+	 * GD.AT Athex Composite Share Price Index 687.33
 	 */
 
 	ILF(LATIN_AMERICA, "iShares Latin America 40 (ILF)"), //
