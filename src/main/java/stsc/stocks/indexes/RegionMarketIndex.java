@@ -28,9 +28,7 @@ public enum RegionMarketIndex {
 
 	_094MERV(AMERICA, "MerVal"), //
 	_094BVSP(AMERICA, "IBOVESPA"), //
-	_094GSPTSE(AMERICA, "S&P TSX Composite"), //
 	_094MXX(AMERICA, "IPC Mexico"), //
-	_094GSPC(AMERICA, "S&P 500"), //
 
 	_094ATX(EUROPE, "Vienna"), //
 	_094BFX(EUROPE, "EURONEXT BEL-20. Brussels"), //

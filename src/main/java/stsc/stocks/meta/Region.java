@@ -5,11 +5,12 @@ package stsc.stocks.meta;
  */
 public enum Region {
 
+	AFRICA("Magic continent"), //
+	AMERICA("New Continent"), //
 	ASIA("Tadadada-ta-datatam."), //
+	AUSTRALIA("Kangaroo home."), //
 	EUROPE("Germany is there."), //
 	LATIN_AMERICA("Tequila!"), //
-	AMERICA("New Continent"), //
-	AUSTRALIA("Kangaroo home."), //
 	;
 
 	private final String description;
