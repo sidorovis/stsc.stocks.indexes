@@ -5,6 +5,7 @@ package stsc.stocks.meta;
  */
 public enum Country {
 	AUSTRALIA(Region.AUSTRALIA), //
+	BELARUS(Region.EUROPE), //
 	EGYPT(Region.AFRICA), //
 	GREAT_BRITAIN(Region.EUROPE), //
 	IZRAIL(Region.EUROPE), //
