@@ -2,8 +2,8 @@ package stsc.stocks.indexes;
 
 import static stsc.stocks.meta.Country.AUSTRALIA;
 import static stsc.stocks.meta.Country.EGYPT;
-import static stsc.stocks.meta.Country.GREAT_BRITAIN;
-import static stsc.stocks.meta.Country.IZRAIL;
+import static stsc.stocks.meta.Country.UNITED_KINGDOM;
+import static stsc.stocks.meta.Country.ISRAEL;
 import static stsc.stocks.meta.Country.JAPAN;
 import static stsc.stocks.meta.Country.USA;
 import static stsc.stocks.meta.MarketIndexGroup.NATIONAL;
@@ -19,9 +19,9 @@ public enum CountryMarketIndex {
 
 	_094CCSI(EGYPT, "EGX 70 PRICE INDEX"), //
 
-	UKX(GREAT_BRITAIN, "FTSE 100, https://en.wikipedia.org/wiki/FTSE_100_Index"), //
+	UKX(UNITED_KINGDOM, "FTSE 100, https://en.wikipedia.org/wiki/FTSE_100_Index"), //
 
-	TA100(IZRAIL, "TEL AVIV TA-100 IND. Tel Aviv"), //
+	TA100(ISRAEL, "TEL AVIV TA-100 IND. Tel Aviv"), //
 
 	OSCUF(JAPAN, "OTCMKTS:OSCUF. Osaka Securities Exchange Co Ltd"), //
 	N225(JAPAN, "Nikkei 225."), //

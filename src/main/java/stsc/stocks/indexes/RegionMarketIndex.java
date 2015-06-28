@@ -1,10 +1,10 @@
 package stsc.stocks.indexes;
 
 import static stsc.stocks.meta.MarketIndexGroup.REGIONAL;
-import static stsc.stocks.meta.Region.AMERICA;
+import static stsc.stocks.meta.Region.NORTH_AMERICA;
 import static stsc.stocks.meta.Region.ASIA;
 import static stsc.stocks.meta.Region.EUROPE;
-import static stsc.stocks.meta.Region.LATIN_AMERICA;
+import static stsc.stocks.meta.Region.SOUTH_AMERICA;
 import stsc.stocks.meta.MarketIndexGroup;
 import stsc.stocks.meta.Region;
 
@@ -26,9 +26,9 @@ public enum RegionMarketIndex {
 	_094KS11(ASIA, "Seoul Composite"), //
 	_094TWII(ASIA, "Taiwan Weighted"), //
 
-	_094MERV(AMERICA, "MerVal"), //
-	_094BVSP(AMERICA, "IBOVESPA"), //
-	_094MXX(AMERICA, "IPC Mexico"), //
+	_094MERV(NORTH_AMERICA, "MerVal"), //
+	_094BVSP(NORTH_AMERICA, "IBOVESPA"), //
+	_094MXX(NORTH_AMERICA, "IPC Mexico"), //
 
 	_094ATX(EUROPE, "Vienna"), //
 	_094BFX(EUROPE, "EURONEXT BEL-20. Brussels"), //
@@ -47,7 +47,7 @@ public enum RegionMarketIndex {
 	 * GD.AT Athex Composite Share Price Index 687.33
 	 */
 
-	ILF(LATIN_AMERICA, "iShares Latin America 40 (ILF)"), //
+	ILF(SOUTH_AMERICA, "iShares Latin America 40 (ILF)"), //
 	;
 
 	private final MarketIndexGroup marketIndexGroup;
