@@ -186,7 +186,6 @@ public enum CountryMarketIndex {
 	WDC(USA, "WESTERN DIGITAL CP"), //
 	WFM(USA, "WHOLE FOODS MARKET"), //
 	WYNN(USA, "WYNN RESORTS LIMITED"), //
-
 	//
 	;
 
