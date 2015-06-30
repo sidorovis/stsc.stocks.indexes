@@ -1,7 +1,14 @@
 package stsc.stocks.indexes;
 
 import static stsc.stocks.meta.Country.AUSTRALIA;
+import static stsc.stocks.meta.Country.BRAZIL;
 import static stsc.stocks.meta.Country.EGYPT;
+import static stsc.stocks.meta.Country.FRANCE;
+import static stsc.stocks.meta.Country.GERMANY;
+import static stsc.stocks.meta.Country.HONG_KONG;
+import static stsc.stocks.meta.Country.MEXICO;
+import static stsc.stocks.meta.Country.SINGAPORE;
+import static stsc.stocks.meta.Country.TAIWAN;
 import static stsc.stocks.meta.Country.UNITED_KINGDOM;
 import static stsc.stocks.meta.Country.ISRAEL;
 import static stsc.stocks.meta.Country.JAPAN;
@@ -15,6 +22,7 @@ import stsc.stocks.meta.MarketIndexGroup;
  */
 public enum CountryMarketIndex {
 
+	// global
 	ASX(AUSTRALIA, "https://en.wikipedia.org/wiki/Australian_Securities_Exchange"), //
 
 	_094CCSI(EGYPT, "EGX 70 PRICE INDEX"), //
@@ -32,10 +40,22 @@ public enum CountryMarketIndex {
 	VIX(USA, "VOLATILITY S&P 500 (^VIX)."), //
 	SPX(USA, "S&P 500 INDEX(INDEXCBOE:SPX)"), //
 	XAX(USA, "NYSE AMEX COMPOSITE INDEX"), //
+
 	_094DJI(USA, "Dow Jones Industrial Average"), //
 	_094GSPC(USA, "S&P 500"), //
 	_094GSPTSE(USA, "S&P/TSX Composite index"), //
 	_094NYA(USA, "NYSE COMPOSITE"), //
+	_094IXIC(USA, "Nasdaq"), //
+	_094BVSP(BRAZIL, "Bovespa"), //
+	_094MXX(MEXICO, "IPC"), //
+	_094FCHI(FRANCE, "CAC 41"), //
+	_094GDAXI(GERMANY, "DAX"), //
+	_094AORD(AUSTRALIA, "All Ordinaries"), //
+	_094N225(JAPAN, "Nikkei 225."), //
+	_094HSI(HONG_KONG, "Hang Seng"), //
+	_094STI(SINGAPORE, "Straits Times"), //
+	_094TWII(TAIWAN, "Taiwan Weighted"), //
+
 	// Components / Not related indexes and etc.
 	AAPL(USA, "Apple Inc."), //
 	AXP(USA, "American Express Company"), //
