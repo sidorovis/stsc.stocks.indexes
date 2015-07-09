@@ -14,26 +14,17 @@ import stsc.stocks.meta.Region;
 public enum RegionMarketIndex {
 
 	AIA(ASIA, "https://en.wikipedia.org/wiki/S%26P_Asia_50"), //
-	_094AORD(ASIA, "All Ordinaries"), //
 	_094SSEC(ASIA, "Shanghai Composite"), //
-	_094HSI(ASIA, "Hang Seng"), //
 	_094BSESN(ASIA, "BSE 30"), //
 	_094JKSE(ASIA, "Jakarta Composite"), //
 	_094KLSE(ASIA, "KLSE Composite"), //
-	_094N225(ASIA, "Nikkei 225"), //
 	_094NZ50(ASIA, "NZX 50 INDEX GROSS"), //
-	_094STI(ASIA, "Straits Times"), //
 	_094KS11(ASIA, "Seoul Composite"), //
-	_094TWII(ASIA, "Taiwan Weighted"), //
 
 	_094MERV(NORTH_AMERICA, "MerVal"), //
-	_094BVSP(NORTH_AMERICA, "IBOVESPA"), //
-	_094MXX(NORTH_AMERICA, "IPC Mexico"), //
 
 	_094ATX(EUROPE, "Vienna"), //
 	_094BFX(EUROPE, "EURONEXT BEL-20. Brussels"), //
-	_094FCHI(EUROPE, "CAC 40. Paris"), //
-	_094GDAXI(EUROPE, "DAX XETRA"), //
 	_094OSEAX(EUROPE, "OSLO EXCH ALL SHARE. Oslo"), //
 	_094MIBTEL(EUROPE, "Milan"), //
 	_094OMXSPI(EUROPE, "Stockholm General"), //

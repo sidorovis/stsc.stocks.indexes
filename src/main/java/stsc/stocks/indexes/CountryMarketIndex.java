@@ -2,6 +2,7 @@ package stsc.stocks.indexes;
 
 import static stsc.stocks.meta.Country.AUSTRALIA;
 import static stsc.stocks.meta.Country.BRAZIL;
+import static stsc.stocks.meta.Country.CHINA;
 import static stsc.stocks.meta.Country.EGYPT;
 import static stsc.stocks.meta.Country.FRANCE;
 import static stsc.stocks.meta.Country.GERMANY;
@@ -207,16 +208,26 @@ public enum CountryMarketIndex {
 	WFM(USA, "WHOLE FOODS MARKET"), //
 	WYNN(USA, "WYNN RESORTS LIMITED"), //
 	//
+	CSI300INDEX(CHINA, "CSI 300 Index (000300.SS)", "000300.SS"), //
 	;
 
 	private final MarketIndexGroup marketIndexGroup;
 	private final Country country;
 	private final String description;
+	private String downloadLink;
 
 	private CountryMarketIndex(final Country country, final String description) {
 		this.marketIndexGroup = NATIONAL;
 		this.country = country;
 		this.description = description;
+		this.downloadLink = name();
+	}
+
+	private CountryMarketIndex(final Country country, final String description, final String downloadLink) {
+		this.marketIndexGroup = NATIONAL;
+		this.country = country;
+		this.description = description;
+		this.downloadLink = downloadLink;
 	}
 
 	public MarketIndexGroup getMarketIndexGroup() {
@@ -229,6 +240,14 @@ public enum CountryMarketIndex {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public String getDownloadLink() {
+		return downloadLink;
+	}
+
+	public void setDownloadLink(String downloadLink) {
+		this.downloadLink = downloadLink;
 	}
 
 }
