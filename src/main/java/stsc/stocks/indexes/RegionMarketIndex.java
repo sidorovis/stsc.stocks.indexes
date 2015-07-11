@@ -30,13 +30,9 @@ public enum RegionMarketIndex {
 	_094OMXSPI(EUROPE, "Stockholm General"), //
 	_094SSMI(EUROPE, "Swiss Market"), //
 
-	/*
-	 * FPXAA.PR PX Index 975.50 //
-	 * 
-	 * MICEXINDEXCF.ME MICEX Index 1,663.03 //
-	 * 
-	 * GD.AT Athex Composite Share Price Index 687.33
-	 */
+	FPXAAPR(EUROPE, "PX IND (FPXAA.PR) -Prague", "FPXAA.PR"), //
+	MICEXINDEXCFMEINDEX(EUROPE, "MICEXINDEXCF.ME MICEX Index", "MICEXINDEXCF.ME"), //
+	GDATINDEX(EUROPE, "GD.AT Athex Composite Share Price Index", "GD.AT"), //
 
 	ILF(SOUTH_AMERICA, "iShares Latin America 40 (ILF)"), //
 	;
@@ -44,11 +40,20 @@ public enum RegionMarketIndex {
 	private final MarketIndexGroup marketIndexGroup;
 	private final Region region;
 	private final String description;
+	private final String downloadLink;
 
 	private RegionMarketIndex(final Region region, final String description) {
 		this.marketIndexGroup = REGIONAL;
 		this.region = region;
 		this.description = description;
+		this.downloadLink = name();
+	}
+
+	private RegionMarketIndex(final Region region, final String description, final String downloadLink) {
+		this.marketIndexGroup = REGIONAL;
+		this.region = region;
+		this.description = description;
+		this.downloadLink = downloadLink;
 	}
 
 	public MarketIndexGroup getMarketIndexGroup() {
@@ -61,6 +66,10 @@ public enum RegionMarketIndex {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public String getDownloadLink() {
+		return downloadLink;
 	}
 
 }
