@@ -35,8 +35,7 @@ public enum CountryMarketIndex {
 	OSCUF(JAPAN, "OTCMKTS:OSCUF. Osaka Securities Exchange Co Ltd"), //
 	N225(JAPAN, "Nikkei 225."), //
 
-	CBOE(USA,
-			"The CBOE Volatility Index (VIX) is a key measure of market expectations of near-term volatility conveyed by S&P 500 stock index option prices."), //
+	CBOE(USA, "The CBOE Volatility Index (VIX) is a key measure of market expectations of near-term volatility conveyed by S&P 500 stock index option prices."), //
 	GSPCX(USA, "The investment seeks long-term growth of capital."), //
 	VIX(USA, "VOLATILITY S&P 500 (^VIX)."), //
 	SPX(USA, "S&P 500 INDEX(INDEXCBOE:SPX)"), //
@@ -220,14 +219,14 @@ public enum CountryMarketIndex {
 		this.marketIndexGroup = NATIONAL;
 		this.country = country;
 		this.description = description;
-		this.downloadLink = name();
+		this.downloadLink = name().toLowerCase();
 	}
 
 	private CountryMarketIndex(final Country country, final String description, final String downloadLink) {
 		this.marketIndexGroup = NATIONAL;
 		this.country = country;
 		this.description = description;
-		this.downloadLink = downloadLink;
+		this.downloadLink = downloadLink.toLowerCase();
 	}
 
 	public MarketIndexGroup getMarketIndexGroup() {

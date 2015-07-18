@@ -27,4 +27,9 @@ public class MarketIndexTest {
 		}
 	}
 
+	@Test
+	public void testDowncaseInstrumentName() {
+		Assert.assertEquals("aapl", CountryMarketIndex.AAPL.getDownloadLink());
+		Assert.assertEquals("_094dji", CountryMarketIndex._094DJI.getDownloadLink());
+	}
 }
