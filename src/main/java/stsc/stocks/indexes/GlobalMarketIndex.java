@@ -10,7 +10,7 @@ import stsc.stocks.meta.MarketIndexGroup;
 /**
  * Global Market index descriptions.
  */
-public class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
+public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 
 	private static class ThisComparator implements Comparator<GlobalMarketIndex> {
 

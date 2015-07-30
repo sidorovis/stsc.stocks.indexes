@@ -25,7 +25,7 @@ import stsc.stocks.meta.MarketIndexGroup;
 /**
  * Market index description for {@link Country}.
  */
-public class CountryMarketIndex implements MarketIndex<CountryMarketIndex> {
+public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex> {
 
 	private static class ThisComparator implements Comparator<CountryMarketIndex> {
 

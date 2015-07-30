@@ -23,7 +23,7 @@ public class MetaIndicesRepositoryIncodeImpl implements MetaIndicesRepository {
 
 	public List<RegionMarketIndex> getRegionMarketIndices() {
 		final ArrayList<RegionMarketIndex> result = new ArrayList<RegionMarketIndex>();
-		for (RegionMarketIndex i : RegionMarketIndex.values()) {
+		for (RegionMarketIndex i : RegionMarketIndex.getValues()) {
 			result.add(i);
 		}
 		return result;
