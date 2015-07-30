@@ -51,10 +51,6 @@ public class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 		this.description = description;
 	}
 
-	public MarketIndexGroup getMarketIndexGroup() {
-		return marketIndexGroup;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -67,6 +63,11 @@ public class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 	@Override
 	public String getFilesystemName() {
 		return filesystemName;
+	}
+
+	@Override
+	public MarketIndexGroup getMarketIndexGroup() {
+		return this.marketIndexGroup;
 	}
 
 }

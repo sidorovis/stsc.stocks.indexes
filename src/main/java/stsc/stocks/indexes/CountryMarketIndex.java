@@ -240,10 +240,6 @@ public class CountryMarketIndex implements MarketIndex<CountryMarketIndex> {
 		return new CountryMarketIndex(fileSystemName, null, null);
 	}
 
-	public MarketIndexGroup getMarketIndexGroup() {
-		return marketIndexGroup;
-	}
-
 	@Override
 	public String getFilesystemName() {
 		return fileSystemName;
@@ -265,6 +261,11 @@ public class CountryMarketIndex implements MarketIndex<CountryMarketIndex> {
 	@Override
 	public int compareTo(final CountryMarketIndex o) {
 		return thisComparator.compare(this, o);
+	}
+
+	@Override
+	public MarketIndexGroup getMarketIndexGroup() {
+		return this.marketIndexGroup;
 	}
 
 }
