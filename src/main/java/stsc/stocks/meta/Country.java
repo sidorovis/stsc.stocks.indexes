@@ -6,7 +6,7 @@ package stsc.stocks.meta;
 public enum Country {
 
 	// see http://www.iso15022.org/MIC/homepageMIC.htm
-	
+
 	ALBANIA(Region.EUROPE), //
 	ALGERIA(Region.AFRICA), //
 	ARGENTINA(Region.SOUTH_AMERICA), //
@@ -160,5 +160,10 @@ public enum Country {
 
 	public Region getRegion() {
 		return region;
+	}
+
+	@Override
+	public String toString() {
+		return name();
 	}
 }

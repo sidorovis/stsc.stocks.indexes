@@ -1,6 +1,7 @@
 package stsc.stocks.indexes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Assert;
@@ -11,8 +12,8 @@ public class MarketIndexTest {
 	@Test
 	public void testMarketIndex() {
 		final List<String> stockNames = new ArrayList<>();
-		for (CountryMarketIndex mi : CountryMarketIndex.values()) {
-			stockNames.add(mi.name());
+		for (CountryMarketIndex mi : CountryMarketIndex.getValues()) {
+			stockNames.add(mi.getFilesystemName());
 		}
 		for (GlobalMarketIndex mi : GlobalMarketIndex.values()) {
 			stockNames.add(mi.name());
@@ -29,7 +30,7 @@ public class MarketIndexTest {
 
 	@Test
 	public void testDowncaseInstrumentName() {
-		Assert.assertEquals("aapl", CountryMarketIndex.AAPL.getDownloadLink());
-		Assert.assertEquals("_094dji", CountryMarketIndex._094DJI.getDownloadLink());
+		Assert.assertTrue(0 < Collections.binarySearch(CountryMarketIndex.getValues(), CountryMarketIndex.createForSearch("aapl")));
+		Assert.assertTrue(0 < Collections.binarySearch(CountryMarketIndex.getValues(), CountryMarketIndex.createForSearch("_094dji")));
 	}
 }

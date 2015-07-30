@@ -31,7 +31,7 @@ public class MetaIndicesRepositoryIncodeImpl implements MetaIndicesRepository {
 
 	public List<CountryMarketIndex> getCountryMarketIndices() {
 		final ArrayList<CountryMarketIndex> result = new ArrayList<CountryMarketIndex>();
-		for (CountryMarketIndex i : CountryMarketIndex.values()) {
+		for (CountryMarketIndex i : CountryMarketIndex.getValues()) {
 			result.add(i);
 		}
 		return result;
