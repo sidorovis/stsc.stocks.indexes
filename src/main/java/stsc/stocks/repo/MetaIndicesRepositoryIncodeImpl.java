@@ -15,7 +15,7 @@ public class MetaIndicesRepositoryIncodeImpl implements MetaIndicesRepository {
 
 	public List<GlobalMarketIndex> getGlobalMarketIndices() {
 		final ArrayList<GlobalMarketIndex> result = new ArrayList<GlobalMarketIndex>();
-		for (GlobalMarketIndex i : GlobalMarketIndex.values()) {
+		for (GlobalMarketIndex i : GlobalMarketIndex.getValues()) {
 			result.add(i);
 		}
 		return result;

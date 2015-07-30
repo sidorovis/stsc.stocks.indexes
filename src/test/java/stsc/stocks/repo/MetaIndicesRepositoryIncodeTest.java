@@ -17,7 +17,7 @@ public class MetaIndicesRepositoryIncodeTest {
 		Assert.assertNotNull(repo.getRegionMarketIndices());
 
 		Assert.assertEquals(CountryMarketIndex.getValues().size(), repo.getCountryMarketIndices().size());
-		Assert.assertEquals(GlobalMarketIndex.values().length, repo.getGlobalMarketIndices().size());
+		Assert.assertEquals(GlobalMarketIndex.getValues().size(), repo.getGlobalMarketIndices().size());
 		Assert.assertEquals(RegionMarketIndex.values().length, repo.getRegionMarketIndices().size());
 	}
 

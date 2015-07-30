@@ -15,8 +15,8 @@ public class MarketIndexTest {
 		for (CountryMarketIndex mi : CountryMarketIndex.getValues()) {
 			stockNames.add(mi.getFilesystemName());
 		}
-		for (GlobalMarketIndex mi : GlobalMarketIndex.values()) {
-			stockNames.add(mi.name());
+		for (GlobalMarketIndex mi : GlobalMarketIndex.getValues()) {
+			stockNames.add(mi.getFilesystemName());
 		}
 		for (RegionMarketIndex mi : RegionMarketIndex.values()) {
 			stockNames.add(mi.name());
