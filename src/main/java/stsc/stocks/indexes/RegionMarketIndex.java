@@ -68,11 +68,11 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 	}
 
 	private RegionMarketIndex(final String filesystemName, final Region region, final String description, final String downloadLink) {
-		this.filesystemName = filesystemName;
+		this.filesystemName = filesystemName.toLowerCase();
 		this.marketIndexGroup = REGIONAL;
 		this.region = region;
 		this.description = description;
-		this.downloadLink = downloadLink;
+		this.downloadLink = this.filesystemName;
 	}
 
 	public Region getWorldSector() {
