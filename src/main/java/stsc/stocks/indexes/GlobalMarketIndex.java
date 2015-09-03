@@ -29,10 +29,8 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 		indexes.add(new GlobalMarketIndex("MSCI", "Morgan Stanley Capital Inc."));
 		indexes.add(new GlobalMarketIndex("IOO",
 				"iShares Global 100 ETF (the Fnd), formerly iShares S&P Global 100 Index Fund, is an exchange-traded fund (ETF)."));
-		indexes.add(new GlobalMarketIndex("_094FTSE", "BBC Global 30, ^FTSE")); // _094
-																				// ->
-																				// ^
-																				// (^FTSE)
+		indexes.add(new GlobalMarketIndex("_094FTSE", "BBC Global 30, ^FTSE"));
+		indexes.add(new GlobalMarketIndex("SPY", "SPDR S&P 500 ETF Trust (SPY)"));
 		indexes.add(new GlobalMarketIndex("EFA", "iShares MSCI EAFE"));
 		indexes.sort(thisComparator);
 	}
@@ -49,6 +47,10 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 		this.marketIndexGroup = GLOBAL;
 		this.filesystemName = filesystemName.toLowerCase();
 		this.description = description;
+	}
+
+	public static GlobalMarketIndex createForSearch(final String fileSystemName) {
+		return new GlobalMarketIndex(fileSystemName, null);
 	}
 
 	public String getDescription() {

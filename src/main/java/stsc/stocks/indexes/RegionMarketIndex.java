@@ -75,6 +75,10 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 		this.downloadLink = this.filesystemName;
 	}
 
+	public static RegionMarketIndex createForSearch(final String fileSystemName) {
+		return new RegionMarketIndex(fileSystemName, null, null);
+	}
+
 	public Region getWorldSector() {
 		return region;
 	}
