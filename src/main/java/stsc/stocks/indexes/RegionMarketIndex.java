@@ -9,6 +9,8 @@ import static stsc.stocks.meta.Region.SOUTH_AMERICA;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import stsc.common.stocks.UnitedFormatFilename;
+import stsc.common.stocks.UnitedFormatHelper;
 import stsc.stocks.meta.MarketIndexGroup;
 import stsc.stocks.meta.Region;
 
@@ -21,7 +23,7 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 
 		@Override
 		public int compare(RegionMarketIndex o1, RegionMarketIndex o2) {
-			return o1.getFilesystemName().compareTo(o2.getFilesystemName());
+			return o1.getFilesystemName().getFilename().compareTo(o2.getFilesystemName().getFilename());
 		}
 
 	}
@@ -32,22 +34,22 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 	static {
 		indexes = new ArrayList<>();
 		indexes.add(new RegionMarketIndex("AIA", ASIA, "https://en.wikipedia.org/wiki/S%26P_Asia_50"));
-		indexes.add(new RegionMarketIndex("_094SSEC", ASIA, "Shanghai Composite"));
-		indexes.add(new RegionMarketIndex("_094BSESN", ASIA, "BSE 30"));
-		indexes.add(new RegionMarketIndex("_094JKSE", ASIA, "Jakarta Composite"));
-		indexes.add(new RegionMarketIndex("_094KLSE", ASIA, "KLSE Composite"));
-		indexes.add(new RegionMarketIndex("_094NZ50", ASIA, "NZX 50 INDEX GROSS"));
-		indexes.add(new RegionMarketIndex("_094KS11", ASIA, "Seoul Composite"));
-		indexes.add(new RegionMarketIndex("_094MERV", NORTH_AMERICA, "MerVal"));
-		indexes.add(new RegionMarketIndex("_094ATX", EUROPE, "Vienna"));
-		indexes.add(new RegionMarketIndex("_094BFX", EUROPE, "EURONEXT BEL-20. Brussels"));
-		indexes.add(new RegionMarketIndex("_094OSEAX", EUROPE, "OSLO EXCH ALL SHARE. Oslo"));
-		indexes.add(new RegionMarketIndex("_094MIBTEL", EUROPE, "Milan"));
-		indexes.add(new RegionMarketIndex("_094OMXSPI", EUROPE, "Stockholm General"));
-		indexes.add(new RegionMarketIndex("_094SSMI", EUROPE, "Swiss Market"));
+		indexes.add(new RegionMarketIndex("^SSEC", ASIA, "Shanghai Composite"));
+		indexes.add(new RegionMarketIndex("^BSESN", ASIA, "BSE 30"));
+		indexes.add(new RegionMarketIndex("^JKSE", ASIA, "Jakarta Composite"));
+		indexes.add(new RegionMarketIndex("^KLSE", ASIA, "KLSE Composite"));
+		indexes.add(new RegionMarketIndex("^NZ50", ASIA, "NZX 50 INDEX GROSS"));
+		indexes.add(new RegionMarketIndex("^KS11", ASIA, "Seoul Composite"));
+		indexes.add(new RegionMarketIndex("^MERV", NORTH_AMERICA, "MerVal"));
+		indexes.add(new RegionMarketIndex("^ATX", EUROPE, "Vienna"));
+		indexes.add(new RegionMarketIndex("^BFX", EUROPE, "EURONEXT BEL-20. Brussels"));
+		indexes.add(new RegionMarketIndex("^OSEAX", EUROPE, "OSLO EXCH ALL SHARE. Oslo"));
+		indexes.add(new RegionMarketIndex("^MIBTEL", EUROPE, "Milan"));
+		indexes.add(new RegionMarketIndex("^OMXSPI", EUROPE, "Stockholm General"));
+		indexes.add(new RegionMarketIndex("^SSMI", EUROPE, "Swiss Market"));
 		indexes.add(new RegionMarketIndex("FPXAAPR", EUROPE, "PX IND"));
-		indexes.add(new RegionMarketIndex("MICEXINDEXCFMEINDEX", EUROPE, "MICEXINDEXCF.ME MICEX Index", "MICEXINDEXCF.ME"));
-		indexes.add(new RegionMarketIndex("GDATINDEX", EUROPE, "GD.AT Athex Composite Share Price Index", "GD.AT"));
+		indexes.add(new RegionMarketIndex("MICEXINDEXCF.ME", EUROPE, "MICEXINDEXCF.ME MICEX Index"));
+		indexes.add(new RegionMarketIndex("GD.AT", EUROPE, "GD.AT Athex Composite Share Price Index"));
 		indexes.add(new RegionMarketIndex("ILF", SOUTH_AMERICA, "iShares Latin America 40"));
 
 		indexes.sort(thisComparator);
@@ -58,25 +60,31 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 	}
 
 	private final MarketIndexGroup marketIndexGroup;
-	private final String filesystemName;
+	private final String instrumentName;
+	private final UnitedFormatFilename fileName;
 	private final Region region;
 	private final String description;
-	private final String downloadLink;
 
-	private RegionMarketIndex(final String filesystemName, final Region region, final String description) {
-		this(filesystemName, region, description, filesystemName);
-	}
-
-	private RegionMarketIndex(final String filesystemName, final Region region, final String description, final String downloadLink) {
-		this.filesystemName = filesystemName.toLowerCase();
+	private RegionMarketIndex(final String instrumentName, final Region region, final String description) {
 		this.marketIndexGroup = REGIONAL;
+		this.instrumentName = instrumentName.toLowerCase();
+		this.fileName = UnitedFormatHelper.toFilesystem(instrumentName.toLowerCase());
 		this.region = region;
 		this.description = description;
-		this.downloadLink = this.filesystemName;
 	}
 
-	public static RegionMarketIndex createForSearch(final String fileSystemName) {
-		return new RegionMarketIndex(fileSystemName, null, null);
+	public static RegionMarketIndex createForSearch(final String instrumentName) {
+		return new RegionMarketIndex(instrumentName, null, null);
+	}
+
+	@Override
+	public String getInstrumentName() {
+		return instrumentName;
+	}
+
+	@Override
+	public UnitedFormatFilename getFilesystemName() {
+		return fileName;
 	}
 
 	public Region getWorldSector() {
@@ -87,18 +95,9 @@ public final class RegionMarketIndex implements MarketIndex<RegionMarketIndex> {
 		return description;
 	}
 
-	public String getDownloadLink() {
-		return downloadLink;
-	}
-
 	@Override
 	public int compareTo(RegionMarketIndex o) {
 		return thisComparator.compare(this, o);
-	}
-
-	@Override
-	public String getFilesystemName() {
-		return filesystemName;
 	}
 
 	@Override

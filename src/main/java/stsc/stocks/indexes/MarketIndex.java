@@ -1,5 +1,6 @@
 package stsc.stocks.indexes;
 
+import stsc.common.stocks.UnitedFormatFilename;
 import stsc.stocks.meta.MarketIndexGroup;
 
 /**
@@ -9,7 +10,9 @@ import stsc.stocks.meta.MarketIndexGroup;
  */
 public interface MarketIndex<E> extends Comparable<E> {
 
-	public String getFilesystemName();
+	public String getInstrumentName();
+
+	public UnitedFormatFilename getFilesystemName();
 
 	public MarketIndexGroup getMarketIndexGroup();
 }

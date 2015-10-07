@@ -19,6 +19,8 @@ import static stsc.stocks.meta.MarketIndexGroup.NATIONAL;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import stsc.common.stocks.UnitedFormatFilename;
+import stsc.common.stocks.UnitedFormatHelper;
 import stsc.stocks.meta.Country;
 import stsc.stocks.meta.MarketIndexGroup;
 
@@ -31,7 +33,7 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 
 		@Override
 		public int compare(CountryMarketIndex o1, CountryMarketIndex o2) {
-			return o1.getFilesystemName().compareTo(o2.getFilesystemName());
+			return o1.getFilesystemName().getFilename().compareTo(o2.getFilesystemName().getFilename());
 		}
 	}
 
@@ -41,7 +43,7 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 	static {
 		indexes = new ArrayList<>();
 		indexes.add(create("ASX", AUSTRALIA, "https://en.wikipedia.org/wiki/Australian_Securities_Exchange"));
-		indexes.add(create("_094CCSI", EGYPT, "EGX 70 PRICE INDEX"));
+		indexes.add(create("^CCSI", EGYPT, "EGX 70 PRICE INDEX"));
 		indexes.add(create("UKX", UNITED_KINGDOM, "FTSE 100"));
 		indexes.add(create("TA100", ISRAEL, "TEL AVIV TA-100 IND. Tel Aviv"));
 		indexes.add(create("OSCUF", JAPAN, "OTCMKTS:OSCUF. Osaka Securities Exchange Co Ltd"));
@@ -51,20 +53,20 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 		indexes.add(create("VIX", USA, "VOLATILITY S&P 500"));
 		indexes.add(create("SPX", USA, "S&P 500 INDEX"));
 		indexes.add(create("XAX", USA, "NYSE AMEX COMPOSITE INDEX"));
-		indexes.add(create("_094DJI", USA, "Dow Jones Industrial Average"));
-		indexes.add(create("_094GSPC", USA, "S&P 500"));
-		indexes.add(create("_094GSPTSE", USA, "S&P/TSX Composite index"));
-		indexes.add(create("_094NYA", USA, "NYSE COMPOSITE"));
-		indexes.add(create("_094IXIC", USA, "Nasdaq"));
-		indexes.add(create("_094BVSP", BRAZIL, "Bovespa"));
-		indexes.add(create("_094MXX", MEXICO, "IPC"));
-		indexes.add(create("_094FCHI", FRANCE, "CAC 41"));
-		indexes.add(create("_094GDAXI", GERMANY, "DAX"));
-		indexes.add(create("_094AORD", AUSTRALIA, "All Ordinaries"));
-		indexes.add(create("_094N225", JAPAN, "Nikkei 225."));
-		indexes.add(create("_094HSI", HONG_KONG, "Hang Seng"));
-		indexes.add(create("_094STI", SINGAPORE, "Straits Times"));
-		indexes.add(create("_094TWII", TAIWAN, "Taiwan Weighted"));
+		indexes.add(create("^DJI", USA, "Dow Jones Industrial Average"));
+		indexes.add(create("^GSPC", USA, "S&P 500"));
+		indexes.add(create("^GSPTSE", USA, "S&P/TSX Composite index"));
+		indexes.add(create("^NYA", USA, "NYSE COMPOSITE"));
+		indexes.add(create("^IXIC", USA, "Nasdaq"));
+		indexes.add(create("^BVSP", BRAZIL, "Bovespa"));
+		indexes.add(create("^MXX", MEXICO, "IPC"));
+		indexes.add(create("^FCHI", FRANCE, "CAC 41"));
+		indexes.add(create("^GDAXI", GERMANY, "DAX"));
+		indexes.add(create("^AORD", AUSTRALIA, "All Ordinaries"));
+		indexes.add(create("^N225", JAPAN, "Nikkei 225."));
+		indexes.add(create("^HSI", HONG_KONG, "Hang Seng"));
+		indexes.add(create("^STI", SINGAPORE, "Straits Times"));
+		indexes.add(create("^TWII", TAIWAN, "Taiwan Weighted"));
 		indexes.add(create("AAPL", USA, "Apple Inc."));
 		indexes.add(create("AXP", USA, "American Express Company"));
 		indexes.add(create("BA", USA, "The Boeing Company"));
@@ -217,7 +219,7 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 	}
 
 	private static CountryMarketIndex create(String name, final Country country, final String description) {
-		return new CountryMarketIndex(name, country, description);
+		return new CountryMarketIndex(name.toLowerCase(), country, description);
 	}
 
 	public static ArrayList<CountryMarketIndex> getValues() {
@@ -225,13 +227,15 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 	}
 
 	private final MarketIndexGroup marketIndexGroup;
-	private final String fileSystemName;
+	private final String instrumentName;
+	private final UnitedFormatFilename fileName;
 	private final Country country;
 	private final String description;
 
-	private CountryMarketIndex(final String fileSystemName, final Country country, final String description) {
-		this.fileSystemName = fileSystemName.toLowerCase();
+	private CountryMarketIndex(final String instrumentName, final Country country, final String description) {
 		this.marketIndexGroup = NATIONAL;
+		this.instrumentName = instrumentName;
+		this.fileName = UnitedFormatHelper.toFilesystem(instrumentName);
 		this.country = country;
 		this.description = description;
 	}
@@ -241,8 +245,13 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 	}
 
 	@Override
-	public String getFilesystemName() {
-		return fileSystemName;
+	public String getInstrumentName() {
+		return instrumentName;
+	}
+
+	@Override
+	public UnitedFormatFilename getFilesystemName() {
+		return fileName;
 	}
 
 	public Country getCountry() {
@@ -255,7 +264,7 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 
 	@Override
 	public String toString() {
-		return "CountryMarketIndex{" + fileSystemName + ", " + country + "}";
+		return "CountryMarketIndex{" + fileName + ", " + country + "}";
 	}
 
 	@Override

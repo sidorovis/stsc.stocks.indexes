@@ -5,6 +5,8 @@ import static stsc.stocks.meta.MarketIndexGroup.GLOBAL;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import stsc.common.stocks.UnitedFormatFilename;
+import stsc.common.stocks.UnitedFormatHelper;
 import stsc.stocks.meta.MarketIndexGroup;
 
 /**
@@ -16,7 +18,7 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 
 		@Override
 		public int compare(GlobalMarketIndex o1, GlobalMarketIndex o2) {
-			return o1.getFilesystemName().compareTo(o2.getFilesystemName());
+			return o1.getFilesystemName().getFilename().compareTo(o2.getFilesystemName().getFilename());
 		}
 
 	}
@@ -27,9 +29,8 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 	static {
 		indexes = new ArrayList<>();
 		indexes.add(new GlobalMarketIndex("MSCI", "Morgan Stanley Capital Inc."));
-		indexes.add(new GlobalMarketIndex("IOO",
-				"iShares Global 100 ETF (the Fnd), formerly iShares S&P Global 100 Index Fund, is an exchange-traded fund (ETF)."));
-		indexes.add(new GlobalMarketIndex("_094FTSE", "BBC Global 30, ^FTSE"));
+		indexes.add(new GlobalMarketIndex("IOO", "iShares Global 100 ETF (the Fnd), formerly iShares S&P Global 100 Index Fund, is an exchange-traded fund (ETF)."));
+		indexes.add(new GlobalMarketIndex("^FTSE", "BBC Global 30, ^FTSE"));
 		indexes.add(new GlobalMarketIndex("SPY", "SPDR S&P 500 ETF Trust (SPY)"));
 		indexes.add(new GlobalMarketIndex("EFA", "iShares MSCI EAFE"));
 		indexes.sort(thisComparator);
@@ -40,12 +41,14 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 	}
 
 	private final MarketIndexGroup marketIndexGroup;
-	private final String filesystemName;
+	private final String instrumentName;
+	private final UnitedFormatFilename fileName;
 	private final String description;
 
-	private GlobalMarketIndex(final String filesystemName, final String description) {
+	private GlobalMarketIndex(final String instrumentName, final String description) {
 		this.marketIndexGroup = GLOBAL;
-		this.filesystemName = filesystemName.toLowerCase();
+		this.instrumentName = instrumentName.toLowerCase();
+		this.fileName = UnitedFormatHelper.toFilesystem(instrumentName.toLowerCase());
 		this.description = description;
 	}
 
@@ -63,8 +66,13 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 	}
 
 	@Override
-	public String getFilesystemName() {
-		return filesystemName;
+	public String getInstrumentName() {
+		return instrumentName;
+	}
+
+	@Override
+	public UnitedFormatFilename getFilesystemName() {
+		return fileName;
 	}
 
 	@Override
