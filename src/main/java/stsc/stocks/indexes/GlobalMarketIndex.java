@@ -52,8 +52,8 @@ public final class GlobalMarketIndex implements MarketIndex<GlobalMarketIndex> {
 		this.description = description;
 	}
 
-	public static GlobalMarketIndex createForSearch(final String fileSystemName) {
-		return new GlobalMarketIndex(fileSystemName, null);
+	public static GlobalMarketIndex createForSearch(final String instrumentName) {
+		return new GlobalMarketIndex(instrumentName, null);
 	}
 
 	public String getDescription() {

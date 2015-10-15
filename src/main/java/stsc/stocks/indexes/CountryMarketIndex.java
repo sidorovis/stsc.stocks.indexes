@@ -240,8 +240,8 @@ public final class CountryMarketIndex implements MarketIndex<CountryMarketIndex>
 		this.description = description;
 	}
 
-	public static CountryMarketIndex createForSearch(final String fileSystemName) {
-		return new CountryMarketIndex(fileSystemName, null, null);
+	public static CountryMarketIndex createForSearch(final String instrumentName) {
+		return new CountryMarketIndex(instrumentName, null, null);
 	}
 
 	@Override
