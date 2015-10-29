@@ -9,8 +9,8 @@ import static stsc.stocks.meta.Region.SOUTH_AMERICA;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import stsc.common.stocks.UnitedFormatFilename;
-import stsc.common.stocks.UnitedFormatHelper;
+import stsc.common.stocks.united.format.UnitedFormatFilename;
+import stsc.common.stocks.united.format.UnitedFormatHelper;
 import stsc.stocks.meta.MarketIndexGroup;
 import stsc.stocks.meta.Region;
 

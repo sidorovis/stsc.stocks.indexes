@@ -1,6 +1,6 @@
 package stsc.stocks.indexes;
 
-import stsc.common.stocks.UnitedFormatFilename;
+import stsc.common.stocks.united.format.UnitedFormatFilename;
 import stsc.stocks.meta.MarketIndexGroup;
 
 /**
